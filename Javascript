@@ -1,0 +1,29 @@
+document.getElementById("careerForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const skills = document.getElementById("skills").value.toLowerCase();
+  const interests = document.getElementById("interests").value.toLowerCase();
+  const goals = document.getElementById("goals").value.toLowerCase();
+
+  let suggestion = "";
+
+  if (skills.includes("python") || interests.includes("data")) {
+    suggestion = "You could excel in Data Science or AI Engineering.";
+  } else if (skills.includes("design") || interests.includes("creativity")) {
+    suggestion = "Consider a career in UI/UX Design or Frontend Development.";
+  } else if (skills.includes("marketing") || interests.includes("content")) {
+    suggestion = "Digital Marketing or SEO might suit you well.";
+  } else {
+    suggestion = "Explore emerging fields like Tech Consulting, Product Management, or Full-Stack Development.";
+  }
+
+  const output = `
+    <strong>Hello, ${name}!</strong><br/>
+    Based on your input, here's a career suggestion:<br/><br/>
+    <em>${suggestion}</em><br/><br/>
+    Keep learning and coding for your digital dreams! 🌟
+  `;
+
+  document.getElementById("result").innerHTML = output;
+});
